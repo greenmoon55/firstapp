@@ -1,4 +1,9 @@
 FirstApp::Application.routes.draw do
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :users
   resources :sessions, only: [:new, :create, :destory]
   resources :microposts, only: [:create, :destroy]
